@@ -39,23 +39,22 @@ Public Class Logica
     Sub operaciones()
         ''Intervalo
         ValorIntervalo = Ceiling((max - min) / (4.2323 + (Log(i, 10))))
-        ''MessageBox.Show(ValorIntervalo)
-        ''Inicio de intervalos
 
+        ''Inicio de intervalos
         For index As Integer = 1 To 100
 
             If index = 1 Then ''cuando es el primer intervalo, se coloca el numero menor
                 intervalos(index) = min
             ElseIf (index Mod 2 = 0) Then '' cuando el index del array es par
+
                 intervalos(index) = (intervalos(index - 1) + ValorIntervalo) - 1
             Else '' cuando es impar
-                If intervalos(index) >= max Then
+                If intervalos(index - 1) < max Then
+                    intervalos(index) = intervalos(index - 1) + 1
+                Else
                     MessageBox.Show("entro aca")
                     Exit For
-                Else
-                    intervalos(index) = intervalos(index - 1) + 1
                 End If
-
             End If
             MessageBox.Show("intervalo: " & intervalos(index))
         Next
