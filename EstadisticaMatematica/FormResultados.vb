@@ -78,15 +78,16 @@ Public Class FormResultados
         MessageBox.Show("yaa")
         ''MessageBox.Show(numeroIntervalo)
         For index As Integer = 1 To numeroIntervalo
-            If index Mod 2 = 0 Then
-                TableResultados.Rows.Add(intervalos(index))
-            Else
-                TableResultados.Rows.Add("", intervalos(index + 1))
+            If index Mod 2 <> 0 Then
+                TableResultados.Rows.Add(intervalos(index) & "-" & intervalos(index + 1))
             End If
+
+
 
         Next
     End Sub
 #End Region
 
 
+  
 End Class

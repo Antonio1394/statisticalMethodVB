@@ -27,8 +27,10 @@ Partial Class FormResultados
         Dim SortDescriptor1 As Telerik.WinControls.Data.SortDescriptor = New Telerik.WinControls.Data.SortDescriptor()
         Me.TelerikMetroTouchTheme1 = New Telerik.WinControls.Themes.TelerikMetroTouchTheme()
         Me.TableResultados = New Telerik.WinControls.UI.RadGridView()
+        Me.RadListControl1 = New Telerik.WinControls.UI.RadListControl()
         CType(Me.TableResultados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TableResultados.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadListControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -43,15 +45,16 @@ Partial Class FormResultados
         '
         'TableResultados
         '
+        Me.TableResultados.MasterTemplate.AllowAddNewRow = False
         GridViewTextBoxColumn1.EnableExpressionEditor = False
         GridViewTextBoxColumn1.HeaderText = "Intervalo I"
         GridViewTextBoxColumn1.Name = "column1"
-        GridViewTextBoxColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending
+        GridViewTextBoxColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending
+        GridViewTextBoxColumn1.Width = 85
         GridViewTextBoxColumn2.EnableExpressionEditor = False
         GridViewTextBoxColumn2.HeaderText = "Intervalo F"
         GridViewTextBoxColumn2.Name = "column2"
         Me.TableResultados.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1, GridViewTextBoxColumn2})
-        SortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending
         SortDescriptor1.PropertyName = "column1"
         Me.TableResultados.MasterTemplate.SortDescriptors.AddRange(New Telerik.WinControls.Data.SortDescriptor() {SortDescriptor1})
         Me.TableResultados.Name = "TableResultados"
@@ -62,11 +65,20 @@ Partial Class FormResultados
         Me.TableResultados.Text = "RadGridView1"
         Me.TableResultados.ThemeName = "TelerikMetroTouch"
         '
+        'RadListControl1
+        '
+        Me.RadListControl1.Location = New System.Drawing.Point(333, 15)
+        Me.RadListControl1.Name = "RadListControl1"
+        Me.RadListControl1.Size = New System.Drawing.Size(129, 53)
+        Me.RadListControl1.TabIndex = 1
+        Me.RadListControl1.Text = "RadListControl1"
+        '
         'FormResultados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(749, 392)
+        Me.Controls.Add(Me.RadListControl1)
         Me.Controls.Add(Me.TableResultados)
         Me.Name = "FormResultados"
         '
@@ -77,11 +89,13 @@ Partial Class FormResultados
         Me.ThemeName = "TelerikMetroTouch"
         CType(Me.TableResultados.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TableResultados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadListControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents TelerikMetroTouchTheme1 As Telerik.WinControls.Themes.TelerikMetroTouchTheme
     Friend WithEvents TableResultados As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents RadListControl1 As Telerik.WinControls.UI.RadListControl
 End Class
 
