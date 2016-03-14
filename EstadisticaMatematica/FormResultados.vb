@@ -12,8 +12,11 @@ Public Class FormResultados
 
     Public valores(100) As Decimal
     Public intervalos(100) As Decimal
-    Dim i, max, min As Integer
-    Dim minTemporal, maxTemporal As Integer
+    Public frecuencia(100) As Integer
+    Dim i As Integer 'es el numero de valores ingresados
+    Dim conteoFrecuencia As Integer
+    Dim max, min As Double
+    Dim minTemporal, maxTemporal As Double
     Public ValorIntervalo As Double
     Public numeroIntervalo As Integer
 
@@ -43,7 +46,7 @@ Public Class FormResultados
 
     End Sub
 
-    Sub operaciones()
+    Sub GetIntervalos()
         ''Intervalo
         ValorIntervalo = Ceiling((max - min) / (4.2323 + (Log(i, 10))))
 
@@ -59,19 +62,41 @@ Public Class FormResultados
                 If intervalos(index - 1) < max Then
                     intervalos(index) = intervalos(index - 1) + 1
                 Else
-                    MessageBox.Show("entro aca")
+                    ' MessageBox.Show("entro aca")
                     Exit For
                 End If
             End If
             numeroIntervalo = numeroIntervalo + 1
             'MessageBox.Show("intervalo: " & intervalos(index))
             ' MessageBox.Show(numeroIntervalo)
+        Next ''Fin de intervalor
+
+        GetFrecuencia()
+
+
+    End Sub
+    'Para calcular las frecuencias'
+    Sub GetFrecuencia()
+        For index As Integer = 1 To numeroIntervalo
+            Dim index3 As Integer
+            index3 += 1
+
+            conteoFrecuencia = 0
+            For index2 As Integer = 1 To i
+                If valores(index2) >= intervalos(index) And valores(index2) <= intervalos(index + 1) Then
+                    conteoFrecuencia += 1
+                End If
+            Next
+            index = index + 1
+            frecuencia(index3) = conteoFrecuencia
         Next
-        MessageBox.Show("numero de intervalos " & numeroIntervalo)
+
+
+
     End Sub
     Sub generar()
         MayorMenor()
-        operaciones()
+        GetIntervalos()
         Me.Show()
     End Sub
     Sub resultados()
@@ -79,12 +104,14 @@ Public Class FormResultados
         ''MessageBox.Show(numeroIntervalo)
         For index As Integer = 1 To numeroIntervalo
             If index Mod 2 <> 0 Then
-                TableResultados.Rows.Add(intervalos(index) & "-" & intervalos(index + 1))
+                ListIntervalos.Items.Add(intervalos(index) & "-" & intervalos(index + 1))
             End If
-
-
-
         Next
+
+        For Index2 As Integer = 1 To numeroIntervalo / 2
+            ListFrecuencias.Items.Add(frecuencia(Index2))
+        Next
+       
     End Sub
 #End Region
 
