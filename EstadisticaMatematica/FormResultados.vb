@@ -10,9 +10,12 @@ Public Class FormResultados
 
 #Region "Funciones"
 
-    Public valores(100) As Decimal
-    Public intervalos(100) As Decimal
-    Public frecuencia(100) As Integer
+    Public valores(100) As Decimal '' array para valores de la muestra
+    Public intervalos(100) As Decimal '' array para almacenar los intervalos
+    Public frecuencia(100) As Integer '' Para almacenar las frecuencias
+    Public Lri(100) As Double ''para almacenar los limites reales inferiores
+    Public Lrs(100) As Double '' Para almacenar los limites reales superiores
+    Public Fx(100) As Integer
     Dim i As Integer 'es el numero de valores ingresados
     Dim conteoFrecuencia As Integer
     Dim max, min As Double
@@ -72,8 +75,9 @@ Public Class FormResultados
         Next ''Fin de intervalor
 
         GetFrecuencia()
-
-
+        getFx()
+        getLri()
+        getLrs()
     End Sub
     'Para calcular las frecuencias'
     Sub GetFrecuencia()
@@ -90,9 +94,36 @@ Public Class FormResultados
             index = index + 1
             frecuencia(index3) = conteoFrecuencia
         Next
+    End Sub
+    ''Obtener FX
+    Sub getFx()
+        For index As Integer = 1 To numeroIntervalo / 2
+            If index = 1 Then
+                Fx(index) = frecuencia(index)
+            Else
+                Fx(index) = Fx(index - 1) + frecuencia(index)
+            End If
+            'MessageBox.Show(Fx(index))
+        Next
+    End Sub
 
+    ''obtener limite real inferior
+    Sub getLri()
+        For index As Integer = 1 To numeroIntervalo
+            If index Mod 2 <> 0 Then
+                Lri(index) = intervalos(index) - 0.5
+            End If
+        Next
+    End Sub
 
+    ''obtener Limite real superiro
 
+    Sub getLrs()
+        For index As Integer = 1 To numeroIntervalo
+            If index Mod 2 = 0 Then
+                Lrs(index) = intervalos(index) - 0.5
+            End If
+        Next
     End Sub
     Sub generar()
         MayorMenor()
@@ -101,20 +132,31 @@ Public Class FormResultados
     End Sub
     Sub resultados()
         MessageBox.Show("yaa")
-        ''MessageBox.Show(numeroIntervalo)
-        For index As Integer = 1 To numeroIntervalo
+
+        For index As Integer = 1 To numeroIntervalo ''LLeno los intervalos
             If index Mod 2 <> 0 Then
                 ListIntervalos.Items.Add(intervalos(index) & "-" & intervalos(index + 1))
             End If
         Next
 
-        For Index2 As Integer = 1 To numeroIntervalo / 2
+        For Index2 As Integer = 1 To numeroIntervalo / 2 ''LLeno la frecuencia
             ListFrecuencias.Items.Add(frecuencia(Index2))
+        Next
+
+        For index3 As Integer = 1 To numeroIntervalo / 2
+            ListFx.Items.Add(Fx(index3))
+        Next
+
+        For index3 As Integer = 1 To numeroIntervalo
+            If index3 Mod 2 <> 0 Then
+                ListLri.Items.Add(Lri(index3))
+            End If
         Next
        
     End Sub
 #End Region
 
 
+  
   
 End Class
