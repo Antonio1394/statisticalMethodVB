@@ -24,40 +24,40 @@ Partial Class FormResultados
     Private Sub InitializeComponent()
         Dim GridViewTextBoxColumn1 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
         Me.TelerikMetroTouchTheme1 = New Telerik.WinControls.Themes.TelerikMetroTouchTheme()
-        Me.RadGridView1 = New Telerik.WinControls.UI.RadGridView()
-        CType(Me.RadGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadGridView1.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableResultados = New Telerik.WinControls.UI.RadGridView()
+        CType(Me.TableResultados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TableResultados.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'RadGridView1
+        'TableResultados
         '
-        Me.RadGridView1.BackColor = System.Drawing.Color.White
-        Me.RadGridView1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.RadGridView1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.RadGridView1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.RadGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.RadGridView1.Location = New System.Drawing.Point(48, 104)
+        Me.TableResultados.BackColor = System.Drawing.Color.White
+        Me.TableResultados.Cursor = System.Windows.Forms.Cursors.Default
+        Me.TableResultados.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.TableResultados.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.TableResultados.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.TableResultados.Location = New System.Drawing.Point(48, 104)
         '
-        'RadGridView1
+        'TableResultados
         '
         GridViewTextBoxColumn1.EnableExpressionEditor = False
         GridViewTextBoxColumn1.HeaderText = "Intervalo"
         GridViewTextBoxColumn1.Name = "column1"
-        Me.RadGridView1.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1})
-        Me.RadGridView1.Name = "RadGridView1"
-        Me.RadGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.RadGridView1.Size = New System.Drawing.Size(662, 263)
-        Me.RadGridView1.TabIndex = 0
-        Me.RadGridView1.Text = "RadGridView1"
-        Me.RadGridView1.ThemeName = "TelerikMetro"
+        Me.TableResultados.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1})
+        Me.TableResultados.Name = "TableResultados"
+        Me.TableResultados.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TableResultados.Size = New System.Drawing.Size(662, 263)
+        Me.TableResultados.TabIndex = 0
+        Me.TableResultados.Text = "RadGridView1"
+        Me.TableResultados.ThemeName = "TelerikMetroTouch"
         '
         'FormResultados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(749, 392)
-        Me.Controls.Add(Me.RadGridView1)
+        Me.Controls.Add(Me.TableResultados)
         Me.Name = "FormResultados"
         '
         '
@@ -65,13 +65,13 @@ Partial Class FormResultados
         Me.RootElement.ApplyShapeToControl = True
         Me.Text = "FormResultados"
         Me.ThemeName = "TelerikMetroTouch"
-        CType(Me.RadGridView1.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TableResultados.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TableResultados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents TelerikMetroTouchTheme1 As Telerik.WinControls.Themes.TelerikMetroTouchTheme
-    Friend WithEvents RadGridView1 As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents TableResultados As Telerik.WinControls.UI.RadGridView
 End Class
 

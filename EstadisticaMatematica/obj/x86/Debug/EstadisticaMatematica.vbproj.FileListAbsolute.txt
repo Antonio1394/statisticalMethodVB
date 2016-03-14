@@ -20,3 +20,4 @@ C:\Users\pepeg\Documents\Visual Studio 2013\Projects\statisticalMethodVB\Estadis
 C:\Users\pepeg\Documents\Visual Studio 2013\Projects\statisticalMethodVB\EstadisticaMatematica\obj\x86\Debug\EstadisticaMatematica.Resources.resources
 C:\Users\pepeg\Documents\Visual Studio 2013\Projects\statisticalMethodVB\EstadisticaMatematica\obj\x86\Debug\EstadisticaMatematica.RadForm1.resources
 C:\Users\pepeg\Documents\Visual Studio 2013\Projects\statisticalMethodVB\EstadisticaMatematica\obj\x86\Debug\EstadisticaMatematica.vbproj.GenerateResource.Cache
+C:\Users\pepeg\Documents\Visual Studio 2013\Projects\statisticalMethodVB\EstadisticaMatematica\obj\x86\Debug\EstadisticaMatematica.FormResultados.resources

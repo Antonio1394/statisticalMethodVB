@@ -108,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.vb" />
+    <Compile Include="FormResultados.Designer.vb">
+      <DependentUpon>FormResultados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormResultados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Logica.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -132,6 +138,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormResultados.resx">
+      <DependentUpon>FormResultados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

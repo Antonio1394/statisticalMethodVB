@@ -15,5 +15,7 @@
 
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
         fn.generar()
+        FormResultados.Show()
+
     End Sub
 End Class
