@@ -23,6 +23,8 @@ Partial Class FormResultados
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim GridViewTextBoxColumn1 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim GridViewTextBoxColumn2 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim SortDescriptor1 As Telerik.WinControls.Data.SortDescriptor = New Telerik.WinControls.Data.SortDescriptor()
         Me.TelerikMetroTouchTheme1 = New Telerik.WinControls.Themes.TelerikMetroTouchTheme()
         Me.TableResultados = New Telerik.WinControls.UI.RadGridView()
         CType(Me.TableResultados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -37,16 +39,24 @@ Partial Class FormResultados
         Me.TableResultados.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.TableResultados.ForeColor = System.Drawing.SystemColors.ControlText
         Me.TableResultados.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.TableResultados.Location = New System.Drawing.Point(48, 104)
+        Me.TableResultados.Location = New System.Drawing.Point(42, 95)
         '
         'TableResultados
         '
         GridViewTextBoxColumn1.EnableExpressionEditor = False
-        GridViewTextBoxColumn1.HeaderText = "Intervalo"
+        GridViewTextBoxColumn1.HeaderText = "Intervalo I"
         GridViewTextBoxColumn1.Name = "column1"
-        Me.TableResultados.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1})
+        GridViewTextBoxColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending
+        GridViewTextBoxColumn2.EnableExpressionEditor = False
+        GridViewTextBoxColumn2.HeaderText = "Intervalo F"
+        GridViewTextBoxColumn2.Name = "column2"
+        Me.TableResultados.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1, GridViewTextBoxColumn2})
+        SortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending
+        SortDescriptor1.PropertyName = "column1"
+        Me.TableResultados.MasterTemplate.SortDescriptors.AddRange(New Telerik.WinControls.Data.SortDescriptor() {SortDescriptor1})
         Me.TableResultados.Name = "TableResultados"
         Me.TableResultados.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TableResultados.ShowGroupPanel = False
         Me.TableResultados.Size = New System.Drawing.Size(662, 263)
         Me.TableResultados.TabIndex = 0
         Me.TableResultados.Text = "RadGridView1"

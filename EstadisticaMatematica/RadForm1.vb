@@ -1,5 +1,5 @@
 ﻿Public Class RadForm1
-    Dim fn As New Logica
+    Dim fn As New FormResultados
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
         If txtValor.Text.Length = 0 Then
@@ -15,7 +15,5 @@
 
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
         fn.generar()
-        FormResultados.Show()
-
     End Sub
 End Class

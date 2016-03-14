@@ -5,9 +5,8 @@ Public Class Logica
     Public intervalos(100) As Decimal
     Dim i, max, min As Integer
     Dim minTemporal, maxTemporal As Integer
-    Public ValorIntervalo, numeroIntervalo As Double
-
-
+    Public ValorIntervalo As Double
+    Public numeroIntervalo As Integer
 
     ''Guarda Valores en el array
     Sub GuardarValores(valor)
@@ -42,7 +41,7 @@ Public Class Logica
 
         ''Inicio de intervalos
         For index As Integer = 1 To 100
-            numeroIntervalo+=1
+
             If index = 1 Then ''cuando es el primer intervalo, se coloca el numero menor
                 intervalos(index) = min
             ElseIf (index Mod 2 = 0) Then '' cuando el index del array es par
@@ -56,9 +55,11 @@ Public Class Logica
                     Exit For
                 End If
             End If
+            numeroIntervalo = numeroIntervalo + 1
             'MessageBox.Show("intervalo: " & intervalos(index))
             ' MessageBox.Show(numeroIntervalo)
         Next
+        MessageBox.Show("numero de intervalos " & numeroIntervalo)
     End Sub
     Sub generar()
         MayorMenor()
