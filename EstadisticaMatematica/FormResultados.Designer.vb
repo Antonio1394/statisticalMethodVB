@@ -22,6 +22,11 @@ Partial Class FormResultados
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim GridViewTextBoxColumn1 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim GridViewTextBoxColumn2 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim GridViewTextBoxColumn3 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim GridViewTextBoxColumn4 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim SortDescriptor1 As Telerik.WinControls.Data.SortDescriptor = New Telerik.WinControls.Data.SortDescriptor()
         Me.TelerikMetroTouchTheme1 = New Telerik.WinControls.Themes.TelerikMetroTouchTheme()
         Me.ListFrecuencias = New Telerik.WinControls.UI.RadListControl()
         Me.RadLabel1 = New Telerik.WinControls.UI.RadLabel()
@@ -33,6 +38,15 @@ Partial Class FormResultados
         Me.ListLri = New Telerik.WinControls.UI.RadListControl()
         Me.RadLabel5 = New Telerik.WinControls.UI.RadLabel()
         Me.ListLrs = New Telerik.WinControls.UI.RadListControl()
+        Me.RadLabel6 = New Telerik.WinControls.UI.RadLabel()
+        Me.ListPromedio = New Telerik.WinControls.UI.RadListControl()
+        Me.RadLabel7 = New Telerik.WinControls.UI.RadLabel()
+        Me.listxCuadrado = New Telerik.WinControls.UI.RadListControl()
+        Me.RadLabel8 = New Telerik.WinControls.UI.RadLabel()
+        Me.listFxX = New Telerik.WinControls.UI.RadListControl()
+        Me.RadLabel9 = New Telerik.WinControls.UI.RadLabel()
+        Me.ListFxAcumulada = New Telerik.WinControls.UI.RadListControl()
+        Me.tableFormulas = New Telerik.WinControls.UI.RadGridView()
         CType(Me.ListFrecuencias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListIntervalos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,6 +57,16 @@ Partial Class FormResultados
         CType(Me.ListLri, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListLrs, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadLabel6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListPromedio, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadLabel7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.listxCuadrado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadLabel8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.listFxX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadLabel9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListFxAcumulada, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tableFormulas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tableFormulas.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -146,11 +170,136 @@ Partial Class FormResultados
         Me.ListLrs.Text = "RadListControl1"
         Me.ListLrs.ThemeName = "TelerikMetroTouch"
         '
+        'RadLabel6
+        '
+        Me.RadLabel6.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadLabel6.Location = New System.Drawing.Point(400, 14)
+        Me.RadLabel6.Name = "RadLabel6"
+        Me.RadLabel6.Size = New System.Drawing.Size(20, 30)
+        Me.RadLabel6.TabIndex = 14
+        Me.RadLabel6.Text = "X"
+        '
+        'ListPromedio
+        '
+        Me.ListPromedio.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListPromedio.ItemHeight = 36
+        Me.ListPromedio.Location = New System.Drawing.Point(390, 46)
+        Me.ListPromedio.Name = "ListPromedio"
+        Me.ListPromedio.Size = New System.Drawing.Size(55, 325)
+        Me.ListPromedio.TabIndex = 13
+        Me.ListPromedio.Text = "RadListControl1"
+        Me.ListPromedio.ThemeName = "TelerikMetroTouch"
+        '
+        'RadLabel7
+        '
+        Me.RadLabel7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadLabel7.Location = New System.Drawing.Point(447, 15)
+        Me.RadLabel7.Name = "RadLabel7"
+        Me.RadLabel7.Size = New System.Drawing.Size(44, 30)
+        Me.RadLabel7.TabIndex = 16
+        Me.RadLabel7.Text = "X^2"
+        '
+        'listxCuadrado
+        '
+        Me.listxCuadrado.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listxCuadrado.ItemHeight = 36
+        Me.listxCuadrado.Location = New System.Drawing.Point(444, 46)
+        Me.listxCuadrado.Name = "listxCuadrado"
+        Me.listxCuadrado.Size = New System.Drawing.Size(55, 325)
+        Me.listxCuadrado.TabIndex = 15
+        Me.listxCuadrado.Text = "RadListControl1"
+        Me.listxCuadrado.ThemeName = "TelerikMetroTouch"
+        '
+        'RadLabel8
+        '
+        Me.RadLabel8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadLabel8.Location = New System.Drawing.Point(503, 15)
+        Me.RadLabel8.Name = "RadLabel8"
+        Me.RadLabel8.Size = New System.Drawing.Size(58, 30)
+        Me.RadLabel8.TabIndex = 18
+        Me.RadLabel8.Text = "F.X^2"
+        '
+        'listFxX
+        '
+        Me.listFxX.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listFxX.ItemHeight = 36
+        Me.listFxX.Location = New System.Drawing.Point(498, 46)
+        Me.listFxX.Name = "listFxX"
+        Me.listFxX.Size = New System.Drawing.Size(63, 325)
+        Me.listFxX.TabIndex = 17
+        Me.listFxX.Text = "RadListControl1"
+        Me.listFxX.ThemeName = "TelerikMetroTouch"
+        '
+        'RadLabel9
+        '
+        Me.RadLabel9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadLabel9.Location = New System.Drawing.Point(565, 19)
+        Me.RadLabel9.Name = "RadLabel9"
+        Me.RadLabel9.Size = New System.Drawing.Size(65, 24)
+        Me.RadLabel9.TabIndex = 20
+        Me.RadLabel9.Text = "(F.X^2)X"
+        '
+        'ListFxAcumulada
+        '
+        Me.ListFxAcumulada.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListFxAcumulada.ItemHeight = 36
+        Me.ListFxAcumulada.Location = New System.Drawing.Point(560, 46)
+        Me.ListFxAcumulada.Name = "ListFxAcumulada"
+        Me.ListFxAcumulada.Size = New System.Drawing.Size(63, 325)
+        Me.ListFxAcumulada.TabIndex = 19
+        Me.ListFxAcumulada.Text = "RadListControl1"
+        Me.ListFxAcumulada.ThemeName = "TelerikMetroTouch"
+        '
+        'tableFormulas
+        '
+        Me.tableFormulas.BackColor = System.Drawing.Color.White
+        Me.tableFormulas.Cursor = System.Windows.Forms.Cursors.Default
+        Me.tableFormulas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.tableFormulas.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.tableFormulas.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.tableFormulas.Location = New System.Drawing.Point(62, 377)
+        '
+        'tableFormulas
+        '
+        Me.tableFormulas.MasterTemplate.AllowAddNewRow = False
+        GridViewTextBoxColumn1.EnableExpressionEditor = False
+        GridViewTextBoxColumn1.HeaderText = "Media"
+        GridViewTextBoxColumn1.Name = "column1"
+        GridViewTextBoxColumn2.EnableExpressionEditor = False
+        GridViewTextBoxColumn2.HeaderText = "Moda"
+        GridViewTextBoxColumn2.Name = "column2"
+        GridViewTextBoxColumn3.EnableExpressionEditor = False
+        GridViewTextBoxColumn3.HeaderText = "Varianza"
+        GridViewTextBoxColumn3.Name = "column3"
+        GridViewTextBoxColumn4.EnableExpressionEditor = False
+        GridViewTextBoxColumn4.HeaderText = "Cociente V"
+        GridViewTextBoxColumn4.Name = "column4"
+        GridViewTextBoxColumn4.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending
+        Me.tableFormulas.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1, GridViewTextBoxColumn2, GridViewTextBoxColumn3, GridViewTextBoxColumn4})
+        SortDescriptor1.PropertyName = "column4"
+        Me.tableFormulas.MasterTemplate.SortDescriptors.AddRange(New Telerik.WinControls.Data.SortDescriptor() {SortDescriptor1})
+        Me.tableFormulas.Name = "tableFormulas"
+        Me.tableFormulas.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tableFormulas.ShowGroupPanel = False
+        Me.tableFormulas.Size = New System.Drawing.Size(561, 79)
+        Me.tableFormulas.TabIndex = 21
+        Me.tableFormulas.Text = "RadGridView1"
+        Me.tableFormulas.ThemeName = "TelerikMetroTouch"
+        '
         'FormResultados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(749, 392)
+        Me.ClientSize = New System.Drawing.Size(749, 480)
+        Me.Controls.Add(Me.tableFormulas)
+        Me.Controls.Add(Me.RadLabel9)
+        Me.Controls.Add(Me.ListFxAcumulada)
+        Me.Controls.Add(Me.RadLabel8)
+        Me.Controls.Add(Me.listFxX)
+        Me.Controls.Add(Me.RadLabel7)
+        Me.Controls.Add(Me.listxCuadrado)
+        Me.Controls.Add(Me.RadLabel6)
+        Me.Controls.Add(Me.ListPromedio)
         Me.Controls.Add(Me.RadLabel5)
         Me.Controls.Add(Me.ListLrs)
         Me.Controls.Add(Me.RadLabel4)
@@ -166,7 +315,7 @@ Partial Class FormResultados
         '
         '
         Me.RootElement.ApplyShapeToControl = True
-        Me.Text = "FormResultados"
+        Me.Text = "Metodo Estadistico"
         Me.ThemeName = "TelerikMetroTouch"
         CType(Me.ListFrecuencias, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -178,6 +327,16 @@ Partial Class FormResultados
         CType(Me.ListLri, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadLabel5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListLrs, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadLabel6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListPromedio, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadLabel7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.listxCuadrado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadLabel8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.listFxX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadLabel9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListFxAcumulada, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tableFormulas.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tableFormulas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -194,5 +353,14 @@ Partial Class FormResultados
     Friend WithEvents RadLabel4 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents RadLabel5 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents ListLrs As Telerik.WinControls.UI.RadListControl
+    Friend WithEvents RadLabel6 As Telerik.WinControls.UI.RadLabel
+    Friend WithEvents ListPromedio As Telerik.WinControls.UI.RadListControl
+    Friend WithEvents listxCuadrado As Telerik.WinControls.UI.RadListControl
+    Friend WithEvents RadLabel7 As Telerik.WinControls.UI.RadLabel
+    Friend WithEvents RadLabel8 As Telerik.WinControls.UI.RadLabel
+    Friend WithEvents listFxX As Telerik.WinControls.UI.RadListControl
+    Friend WithEvents RadLabel9 As Telerik.WinControls.UI.RadLabel
+    Friend WithEvents ListFxAcumulada As Telerik.WinControls.UI.RadListControl
+    Friend WithEvents tableFormulas As Telerik.WinControls.UI.RadGridView
 End Class
 

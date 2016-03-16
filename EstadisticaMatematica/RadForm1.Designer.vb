@@ -89,7 +89,7 @@ Partial Class RadForm1
         '
         '
         Me.RootElement.ApplyShapeToControl = True
-        Me.Text = "RadForm1"
+        Me.Text = "Muestra"
         Me.ThemeName = "TelerikMetroTouch"
         CType(Me.txtValor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).EndInit()
