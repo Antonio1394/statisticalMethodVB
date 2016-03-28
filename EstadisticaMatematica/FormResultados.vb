@@ -59,6 +59,9 @@ Public Class FormResultados
     Dim menorRestaMediana As Double = 9000000
     Dim posicionMediana As Double
 
+    Dim rango As Double
+
+
 
     ''Guarda Valores en el array
     Sub GuardarValores(valor)
@@ -223,7 +226,11 @@ Public Class FormResultados
         For index As Integer = 5 To 1 Step -1
             If (restas(index) < menorResta) Then
                 menorResta = restas(index)
-                posicionMenorResta = index
+                If frecuencia(index) = 0 Then
+                    posicionMenorResta = index - 1
+                Else
+                    posicionMenorResta = index
+                End If
             End If
         Next
 
@@ -270,7 +277,11 @@ Public Class FormResultados
 
             If (restaMediana(index) < menorRestaMediana) Then
                 menorRestaMediana = restaMediana(index)
-                posicionMediana = index
+                If frecuencia(index) = 0 Then
+                    posicionMediana = index - 1
+                Else
+                    posicionMediana = index
+                End If
             End If
 
         Next
@@ -317,6 +328,8 @@ Public Class FormResultados
         Q1 = limiteinferior(posicionMenorResta) + (((nDivido4 - Fx(posicionMenorResta - 1)) * ValorIntervalo) / frecuencia(posicionMenorResta))
         Q3 = limiteinferior(posicionQ3) + (((TresnDividido4 - Fx(posicionQ3 - 1)) * ValorIntervalo) / frecuencia(posicionQ3))
         mediana = limiteinferior(posicionMediana) + (((nDividio2 - Fx(posicionMediana - 1)) * ValorIntervalo) / frecuencia(posicionMediana))
+        rango = Q3 - Q1
+
 
 
 
@@ -380,7 +393,7 @@ Public Class FormResultados
         Next
 
         For index As Integer = 1 To 1
-            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1, Q3, mediana)
+            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1, Q3, mediana, rango)
         Next
 
 

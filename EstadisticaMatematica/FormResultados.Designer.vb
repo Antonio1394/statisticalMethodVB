@@ -29,6 +29,8 @@ Partial Class FormResultados
         Dim GridViewTextBoxColumn5 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
         Dim GridViewTextBoxColumn6 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
         Dim GridViewTextBoxColumn7 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim GridViewTextBoxColumn8 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
+        Dim GridViewTextBoxColumn9 As Telerik.WinControls.UI.GridViewTextBoxColumn = New Telerik.WinControls.UI.GridViewTextBoxColumn()
         Dim SortDescriptor1 As Telerik.WinControls.Data.SortDescriptor = New Telerik.WinControls.Data.SortDescriptor()
         Me.TelerikMetroTouchTheme1 = New Telerik.WinControls.Themes.TelerikMetroTouchTheme()
         Me.ListFrecuencias = New Telerik.WinControls.UI.RadListControl()
@@ -265,6 +267,7 @@ Partial Class FormResultados
         'tableFormulas
         '
         Me.tableFormulas.MasterTemplate.AllowAddNewRow = False
+        GridViewTextBoxColumn1.AllowResize = False
         GridViewTextBoxColumn1.EnableExpressionEditor = False
         GridViewTextBoxColumn1.HeaderText = "Media"
         GridViewTextBoxColumn1.Name = "column1"
@@ -275,20 +278,27 @@ Partial Class FormResultados
         GridViewTextBoxColumn3.HeaderText = "Varianza"
         GridViewTextBoxColumn3.Name = "column3"
         GridViewTextBoxColumn4.EnableExpressionEditor = False
-        GridViewTextBoxColumn4.HeaderText = "Cociente V"
+        GridViewTextBoxColumn4.HeaderText = "Coeficiente V"
         GridViewTextBoxColumn4.Name = "column4"
+        GridViewTextBoxColumn4.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending
         GridViewTextBoxColumn5.EnableExpressionEditor = False
         GridViewTextBoxColumn5.HeaderText = "Q1"
         GridViewTextBoxColumn5.Name = "column5"
         GridViewTextBoxColumn6.EnableExpressionEditor = False
         GridViewTextBoxColumn6.HeaderText = "Q3"
         GridViewTextBoxColumn6.Name = "column6"
-        GridViewTextBoxColumn6.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending
         GridViewTextBoxColumn7.EnableExpressionEditor = False
         GridViewTextBoxColumn7.HeaderText = "Mediana"
         GridViewTextBoxColumn7.Name = "column7"
-        Me.tableFormulas.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1, GridViewTextBoxColumn2, GridViewTextBoxColumn3, GridViewTextBoxColumn4, GridViewTextBoxColumn5, GridViewTextBoxColumn6, GridViewTextBoxColumn7})
-        SortDescriptor1.PropertyName = "column6"
+        GridViewTextBoxColumn8.EnableExpressionEditor = False
+        GridViewTextBoxColumn8.HeaderText = "Rango"
+        GridViewTextBoxColumn8.Name = "column8"
+        GridViewTextBoxColumn9.AllowResize = False
+        GridViewTextBoxColumn9.EnableExpressionEditor = False
+        GridViewTextBoxColumn9.HeaderText = "D. Estandar"
+        GridViewTextBoxColumn9.Name = "column9"
+        Me.tableFormulas.MasterTemplate.Columns.AddRange(New Telerik.WinControls.UI.GridViewDataColumn() {GridViewTextBoxColumn1, GridViewTextBoxColumn2, GridViewTextBoxColumn3, GridViewTextBoxColumn4, GridViewTextBoxColumn5, GridViewTextBoxColumn6, GridViewTextBoxColumn7, GridViewTextBoxColumn8, GridViewTextBoxColumn9})
+        SortDescriptor1.PropertyName = "column4"
         Me.tableFormulas.MasterTemplate.SortDescriptors.AddRange(New Telerik.WinControls.Data.SortDescriptor() {SortDescriptor1})
         Me.tableFormulas.Name = "tableFormulas"
         Me.tableFormulas.RightToLeft = System.Windows.Forms.RightToLeft.No
