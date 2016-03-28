@@ -34,6 +34,10 @@ Public Class FormResultados
     Dim varianza As Double ''varianza
     Dim sumaFx, ultimafrecuencia As Double
     Dim cocienteVariacion As Double
+    ''Variables para Quarteto
+    Dim nDivido4 As Double
+    Dim restas(100) As Double
+
 
 
     ''Guarda Valores en el array
@@ -95,6 +99,8 @@ Public Class FormResultados
         xCuadrado()
         getFxX()
         getFxAcumulada()
+        getValoresQuarteto()
+
 
         Formulas()
 
@@ -179,8 +185,21 @@ Public Class FormResultados
             End If
         Next
     End Sub
+    '''obtengo los valores de los qurtetos
+    Sub getValoresQuarteto()
+        nDivido4 = (i / 4)
+
+        For index As Integer = 1 To i
+            restas(index) = Fx(index) - nDivido4
+            MessageBox.Show(restas(index))
+        Next
+
+    End Sub
+
 
     Sub Formulas()
+
+        MessageBox.Show(nDivido4)
         For index As Integer = 1 To i
             sumaValores = valores(index) + sumaValores
         Next
@@ -271,15 +290,4 @@ Public Class FormResultados
 #End Region
 
 
-  
-  
-    Private Sub RadLabel8_Click(sender As Object, e As EventArgs) Handles RadLabel8.Click
-
-    End Sub
-    Private Sub listFxX_SelectedIndexChanged(sender As Object, e As Telerik.WinControls.UI.Data.PositionChangedEventArgs) Handles listFxX.SelectedIndexChanged
-
-    End Sub
-
- 
-  
 End Class
