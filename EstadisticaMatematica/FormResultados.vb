@@ -34,9 +34,13 @@ Public Class FormResultados
     Dim varianza As Double ''varianza
     Dim sumaFx, ultimafrecuencia As Double
     Dim cocienteVariacion As Double
+
     ''Variables para Quarteto
+    Dim Q1 As Double
     Dim nDivido4 As Double
     Dim restas(100) As Double
+    Dim menorResta As Double = 900000
+    Dim posicionMenorResta As Double
 
 
 
@@ -191,15 +195,23 @@ Public Class FormResultados
 
         For index As Integer = 1 To i
             restas(index) = Fx(index) - nDivido4
-            MessageBox.Show(restas(index))
         Next
+
+        For index As Integer = 1 To i
+            If (restas(index) < menorResta) Then
+                menorResta = restas(index)
+                posicionMenorResta = index
+            End If
+        Next
+
+        MessageBox.Show("resta " & menorResta)
+        MessageBox.Show("posicion " & posicionMenorResta)
 
     End Sub
 
 
     Sub Formulas()
 
-        MessageBox.Show(nDivido4)
         For index As Integer = 1 To i
             sumaValores = valores(index) + sumaValores
         Next
@@ -222,6 +234,8 @@ Public Class FormResultados
         Moda = primerLimiteI + (((primerFrecuencia - 0) * ValorIntervalo) / ((primerFrecuencia - 0) + (primerFrecuencia - segundafrecuencia)))
         varianza = (sumaFx - (ultimafrecuencia * (mediaAritmetica ^ 2))) / (i - 1)
         cocienteVariacion = (mediaAritmetica / Sqrt(varianza)) * 100
+        Q1 = Lri(posicionMenorResta) + (((nDivido4 - Fx(posicionMenorResta - 1)) * ValorIntervalo) / frecuencia(posicionMenorResta))
+
 
 
 
@@ -282,7 +296,7 @@ Public Class FormResultados
         Next
 
         For index As Integer = 1 To 1
-            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion)
+            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1)
         Next
 
 
