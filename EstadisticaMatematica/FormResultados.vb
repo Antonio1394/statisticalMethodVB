@@ -35,13 +35,29 @@ Public Class FormResultados
     Dim sumaFx, ultimafrecuencia As Double
     Dim cocienteVariacion As Double
 
-    ''Variables para Quarteto
+    Dim limiteinferior(100) As Double ''este array almacena los limites de manera ordenada
+
+
+    ''Variables para Quartil1
     Dim Q1 As Double
     Dim nDivido4 As Double
     Dim restas(100) As Double
     Dim menorResta As Double = 900000
     Dim posicionMenorResta As Double
 
+    ''variables para quartil3
+    Dim Q3 As Double
+    Dim TresnDividido4 As Double
+    Dim restasQ3(100) As Double
+    Dim menorRestaQ3 As Double = 9000000
+    Dim posicionQ3 As Double
+
+    ''Variables para mediana
+    Dim mediana As Double
+    Dim nDividio2 As Double
+    Dim restaMediana(100) As Double
+    Dim menorRestaMediana As Double = 9000000
+    Dim posicionMediana As Double
 
 
     ''Guarda Valores en el array
@@ -104,6 +120,10 @@ Public Class FormResultados
         getFxX()
         getFxAcumulada()
         getValoresQuarteto()
+        getValoresQuartil3()
+        valoresLimiteInferiro()
+        getValoresMediana()
+
 
 
         Formulas()
@@ -195,6 +215,9 @@ Public Class FormResultados
 
         For index As Integer = 1 To i
             restas(index) = Fx(index) - nDivido4
+            If (restas(index) < 0) Then
+                restas(index) = (restas(index) * (-1))
+            End If
         Next
 
         For index As Integer = 1 To i
@@ -204,8 +227,62 @@ Public Class FormResultados
             End If
         Next
 
-        MessageBox.Show("resta " & menorResta)
-        MessageBox.Show("posicion " & posicionMenorResta)
+
+    End Sub
+    ''obtengo los valores del quartil3
+    Sub getValoresQuartil3()
+        TresnDividido4 = (i * 3) / 4
+
+        For index As Integer = 1 To i
+            restasQ3(index) = (Fx(index) - TresnDividido4)
+            If (restasQ3(index) < 0) Then
+                restasQ3(index) = (restasQ3(index) * (-1))
+            End If
+
+        Next
+
+        For index As Integer = 1 To i
+            If (restasQ3(index) < menorRestaQ3) Then
+                menorRestaQ3 = restasQ3(index)
+                posicionQ3 = index
+            End If
+
+        Next
+
+    End Sub
+
+    Sub getValoresMediana()
+        nDividio2 = (i / 2)
+
+        For index As Integer = 1 To i
+            restaMediana(index) = (Fx(index) - nDividio2)
+            If (restaMediana(index) < 0) Then
+                restaMediana(index) = (restaMediana(index) * (-1))
+            End If
+
+        Next
+
+        For index As Integer = 5 To 1 Step -1
+
+            If (restaMediana(index) < menorRestaMediana) Then
+                menorRestaMediana = restaMediana(index)
+                posicionMediana = index
+            End If
+
+        Next
+        MessageBox.Show("menor " & menorRestaMediana)
+        MessageBox.Show("posicion " & posicionMediana)
+    End Sub
+    'para meter los valores del limite en un nuevo array'
+    Sub valoresLimiteInferiro()
+        Dim index2 As Integer = 1
+        For index As Integer = 1 To numeroIntervalo
+            If (Lri(index) = 0) Then
+            Else
+                limiteinferior(index2) = Lri(index)
+                index2 = index2 + 1
+            End If
+        Next
 
     End Sub
 
@@ -234,7 +311,12 @@ Public Class FormResultados
         Moda = primerLimiteI + (((primerFrecuencia - 0) * ValorIntervalo) / ((primerFrecuencia - 0) + (primerFrecuencia - segundafrecuencia)))
         varianza = (sumaFx - (ultimafrecuencia * (mediaAritmetica ^ 2))) / (i - 1)
         cocienteVariacion = (mediaAritmetica / Sqrt(varianza)) * 100
-        Q1 = Lri(posicionMenorResta) + (((nDivido4 - Fx(posicionMenorResta - 1)) * ValorIntervalo) / frecuencia(posicionMenorResta))
+        Q1 = limiteinferior(posicionMenorResta) + (((nDivido4 - Fx(posicionMenorResta - 1)) * ValorIntervalo) / frecuencia(posicionMenorResta))
+        Q3 = limiteinferior(posicionQ3) + (((TresnDividido4 - Fx(posicionQ3 - 1)) * ValorIntervalo) / frecuencia(posicionQ3))
+        mediana = limiteinferior(posicionMediana) + (((nDividio2 - Fx(posicionMediana - 1)) * ValorIntervalo) / frecuencia(posicionMediana))
+
+
+
 
 
 
@@ -251,7 +333,6 @@ Public Class FormResultados
         Me.Show()
     End Sub
     Sub resultados()
-
 
         For index As Integer = 1 To numeroIntervalo ''LLeno los intervalos
             If index Mod 2 <> 0 Then
@@ -296,7 +377,7 @@ Public Class FormResultados
         Next
 
         For index As Integer = 1 To 1
-            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1)
+            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1, Q3)
         Next
 
 
