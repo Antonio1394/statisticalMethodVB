@@ -220,7 +220,7 @@ Public Class FormResultados
             End If
         Next
 
-        For index As Integer = 1 To i
+        For index As Integer = 5 To 1 Step -1
             If (restas(index) < menorResta) Then
                 menorResta = restas(index)
                 posicionMenorResta = index
@@ -241,10 +241,14 @@ Public Class FormResultados
 
         Next
 
-        For index As Integer = 1 To i
+        For index As Integer = 5 To 1 Step -1
             If (restasQ3(index) < menorRestaQ3) Then
                 menorRestaQ3 = restasQ3(index)
-                posicionQ3 = index
+                If frecuencia(index) = 0 Then
+                    posicionQ3 = index - 1
+                Else
+                    posicionQ3 = index
+                End If
             End If
 
         Next
@@ -270,8 +274,7 @@ Public Class FormResultados
             End If
 
         Next
-        MessageBox.Show("menor " & menorRestaMediana)
-        MessageBox.Show("posicion " & posicionMediana)
+       
     End Sub
     'para meter los valores del limite en un nuevo array'
     Sub valoresLimiteInferiro()
@@ -377,7 +380,7 @@ Public Class FormResultados
         Next
 
         For index As Integer = 1 To 1
-            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1, Q3)
+            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1, Q3, mediana)
         Next
 
 
