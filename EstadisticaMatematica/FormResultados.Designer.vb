@@ -52,6 +52,7 @@ Partial Class FormResultados
         Me.RadLabel9 = New Telerik.WinControls.UI.RadLabel()
         Me.ListFxAcumulada = New Telerik.WinControls.UI.RadListControl()
         Me.tableFormulas = New Telerik.WinControls.UI.RadGridView()
+        Me.Office2013LightTheme1 = New Telerik.WinControls.Themes.Office2013LightTheme()
         CType(Me.ListFrecuencias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListIntervalos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -293,7 +294,6 @@ Partial Class FormResultados
         GridViewTextBoxColumn8.EnableExpressionEditor = False
         GridViewTextBoxColumn8.HeaderText = "Rango"
         GridViewTextBoxColumn8.Name = "column8"
-        GridViewTextBoxColumn9.AllowResize = False
         GridViewTextBoxColumn9.EnableExpressionEditor = False
         GridViewTextBoxColumn9.HeaderText = "D. Estandar"
         GridViewTextBoxColumn9.Name = "column9"
@@ -301,12 +301,13 @@ Partial Class FormResultados
         SortDescriptor1.PropertyName = "column4"
         Me.tableFormulas.MasterTemplate.SortDescriptors.AddRange(New Telerik.WinControls.Data.SortDescriptor() {SortDescriptor1})
         Me.tableFormulas.Name = "tableFormulas"
+        Me.tableFormulas.ReadOnly = True
         Me.tableFormulas.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.tableFormulas.ShowGroupPanel = False
         Me.tableFormulas.Size = New System.Drawing.Size(561, 100)
         Me.tableFormulas.TabIndex = 21
         Me.tableFormulas.Text = "RadGridView1"
-        Me.tableFormulas.ThemeName = "TelerikMetroTouch"
+        Me.tableFormulas.ThemeName = "TelerikMetro"
         '
         'FormResultados
         '
@@ -384,5 +385,6 @@ Partial Class FormResultados
     Friend WithEvents RadLabel9 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents ListFxAcumulada As Telerik.WinControls.UI.RadListControl
     Friend WithEvents tableFormulas As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents Office2013LightTheme1 As Telerik.WinControls.Themes.Office2013LightTheme
 End Class
 

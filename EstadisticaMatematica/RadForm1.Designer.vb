@@ -32,10 +32,12 @@ Partial Class RadForm1
         Me.RadLabel1 = New Telerik.WinControls.UI.RadLabel()
         Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
+        Me.Lista = New Telerik.WinControls.UI.RadListControl()
         CType(Me.txtValor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Lista, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,11 +77,21 @@ Partial Class RadForm1
         Me.RadButton3.Text = "Generar Resultado"
         Me.RadButton3.ThemeName = "TelerikMetroBlue"
         '
+        'Lista
+        '
+        Me.Lista.Location = New System.Drawing.Point(452, 17)
+        Me.Lista.Name = "Lista"
+        Me.Lista.Size = New System.Drawing.Size(55, 167)
+        Me.Lista.TabIndex = 5
+        Me.Lista.Text = "RadListControl1"
+        Me.Lista.ThemeName = "TelerikMetro"
+        '
         'RadForm1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(509, 219)
+        Me.ClientSize = New System.Drawing.Size(555, 219)
+        Me.Controls.Add(Me.Lista)
         Me.Controls.Add(Me.RadButton3)
         Me.Controls.Add(Me.RadButton1)
         Me.Controls.Add(Me.RadLabel1)
@@ -95,6 +107,7 @@ Partial Class RadForm1
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Lista, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -110,5 +123,6 @@ Partial Class RadForm1
     Friend WithEvents RadLabel1 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents Lista As Telerik.WinControls.UI.RadListControl
 End Class
 

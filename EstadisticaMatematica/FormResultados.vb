@@ -1,14 +1,17 @@
 ﻿Imports System.Math
 
-Public Class FormResultados
 
+Public Class FormResultados
     Private Sub FormResultados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
 
         resultados()
 
     End Sub
 
 #Region "Funciones"
+
 
     Public valores(100) As Decimal '' array para valores de la muestra
     Public intervalos(100) As Decimal '' array para almacenar los intervalos
@@ -60,6 +63,8 @@ Public Class FormResultados
     Dim posicionMediana As Double
 
     Dim rango As Double
+    Dim desviacionEstandar As Double
+
 
 
 
@@ -285,7 +290,7 @@ Public Class FormResultados
             End If
 
         Next
-       
+
     End Sub
     'para meter los valores del limite en un nuevo array'
     Sub valoresLimiteInferiro()
@@ -317,18 +322,21 @@ Public Class FormResultados
         Next
 
         For index As Integer = 1 To numeroIntervalo / 2
-            sumaFx = fxX(index)
+            sumaFx = fxAcumulada(index)
             ultimafrecuencia = Fx(index)
         Next
 
 
         Moda = primerLimiteI + (((primerFrecuencia - 0) * ValorIntervalo) / ((primerFrecuencia - 0) + (primerFrecuencia - segundafrecuencia)))
         varianza = (sumaFx - (ultimafrecuencia * (mediaAritmetica ^ 2))) / (i - 1)
-        cocienteVariacion = (mediaAritmetica / Sqrt(varianza)) * 100
+        desviacionEstandar = Sqrt(varianza)
+        cocienteVariacion = (mediaAritmetica / desviacionEstandar) * 100
         Q1 = limiteinferior(posicionMenorResta) + (((nDivido4 - Fx(posicionMenorResta - 1)) * ValorIntervalo) / frecuencia(posicionMenorResta))
         Q3 = limiteinferior(posicionQ3) + (((TresnDividido4 - Fx(posicionQ3 - 1)) * ValorIntervalo) / frecuencia(posicionQ3))
         mediana = limiteinferior(posicionMediana) + (((nDividio2 - Fx(posicionMediana - 1)) * ValorIntervalo) / frecuencia(posicionMediana))
         rango = Q3 - Q1
+
+
 
 
 
@@ -347,6 +355,8 @@ Public Class FormResultados
         MayorMenor()
         GetIntervalos()
         Me.Show()
+
+
     End Sub
     Sub resultados()
 
@@ -393,12 +403,11 @@ Public Class FormResultados
         Next
 
         For index As Integer = 1 To 1
-            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1, Q3, mediana, rango)
+            tableFormulas.Rows.Add(mediaAritmetica, Moda, varianza, cocienteVariacion, Q1, Q3, mediana, rango, desviacionEstandar)
         Next
 
 
     End Sub
 #End Region
-
 
 End Class
